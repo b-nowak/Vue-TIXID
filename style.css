@@ -120,6 +120,9 @@ p {
 .progress .progress-bar.bg-success {
   background-color: #7d7aad !important;
 }
+.progress .progress-bar.bg-winner {
+  background-color: #30c222 !important;
+}
 .progress .progress-bar .rabbit {
   background: url("rabbit.png");
   background-size: 49px;
