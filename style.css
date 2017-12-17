@@ -1,0 +1,66 @@
+h1 {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin: 50px 0;
+  font-size: 60px;
+}
+
+.btn {
+  color: white;
+  font-size: 20px !important;
+}
+
+.btn-danger {
+  color: white !important;
+  font-size: 20px !important;
+}
+
+.btn-default {
+  color: #999 !important;
+  font-size: 20px !important;
+}
+
+.head {
+  padding: 0 0 20px 0;
+}
+.head p {
+  font-weight: 500;
+  font-size: 28px;
+}
+
+p {
+  font-size: 22px;
+  font-family: Helvetica, sans-serif;
+  display: block;
+  padding: 5px 0;
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.progress {
+  height: 100%;
+}
+.progress .progress-bar {
+  -webkit-transition: width .3s;
+  transition: width .3s;
+}
+
+.bar-inner {
+  background: #9add34;
+  height: 100%;
+  width: 100%;
+  -webkit-transition: width .2s;
+  transition: width .2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */

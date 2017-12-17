@@ -1,0 +1,56 @@
+h1 {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 50px 0;
+    font-size: 60px;
+}
+
+.btn {
+    color: white;
+    font-size: 20px!important;
+}
+
+.btn-danger {
+    color: white!important;
+    font-size: 20px!important;
+}
+
+.btn-default {
+    color: #999!important;
+    font-size: 20px!important;
+}
+
+.head {
+    padding: 0 0 20px 0;
+    p {
+        font-weight: 500;
+        font-size: 28px;
+    }
+}
+
+p {
+    font-size: 22px;
+    font-family: Helvetica, sans-serif;
+    display: block;
+    padding: 5px 0;
+    margin: 0;
+    margin-bottom: 0;
+}
+
+.progress {
+    height: 100%;
+    .progress-bar {
+        transition: width .3s;
+    }
+}
+
+.bar-inner {
+    background: rgb(154, 221, 52);
+    height: 100%;
+    width: 100%;
+    transition: width .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
