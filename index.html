@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Dixit jest spoko</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,13 +19,13 @@
         <div class="row">
             <div class="col-xs-12 col-md-12">
                 <h1>
-                    Dixit jest spoko
+                    <img src="logo.png" class="img-fluid" alt="Tixid - dixit board">
                 </h1>
             </div>
         </div>
 
         <div id="app">
-            <div class="row head">
+            <div class="row head d-xs-none d-sm-none">
                 <div class="col-md-3 col-xs-12">
                     <p>Gracz</p>
                 </div>
@@ -45,17 +45,18 @@
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0"
                                 aria-valuemax="100" style="max-width: 100%;" :style="{ width: row.width + '%' }">
-                                <p v-if="row.width >=100">Jesteś perłą, diamentem!</p>
+                                <span class="rabbit"></span>
+                                <p class="winner" v-if="row.width >=100">Jesteś perłą, diamentem!</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-1 col-xs-12">
+                    <div class="col-md-1 col-xs-6">
                         <p>{{ row.score }}</p>
 
                     </div>
-                    <div class="col-md-3 col-xs-12 actions">
-                        <a href="#" class="btn btn-warning" @click="row.width = row.width - multiply; row.score--" v-bind:class="{'disabled': row.score == 0}">-1</a>
-                        <a href="#" class="btn btn-success" @click="row.width = row.width + multiply; row.score++">+1</a>
+                    <div class="col-md-3 col-xs-6 actions">
+                        <a href="javascript:void(0)" class="btn btn-warning" @click="row.width = row.width - multiply; row.score--" v-bind:class="{'disabled': row.score == 0}">-1</a>
+                        <a href="javascript:void(0)" class="btn btn-success" @click="row.width = row.width + multiply; row.score++">+1</a>
                         <a class="btn btn-danger float-right" @click="removeRow(index)">X</a>
                     </div>
                     <div class="col-md-12 col-xs-12">
