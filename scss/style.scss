@@ -100,9 +100,10 @@ h1 {
 }
 
 .btn-new-player {
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
+  position: fixed;
+  opacity: .9;
+  bottom: 3%;
+  right: 3%;
   height: 50px;
   width: 50px;
   border-radius: 25px;
