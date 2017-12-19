@@ -2,84 +2,98 @@
 <html lang="en">
 
 <head>
-    <title>Dixit jest spoko</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Dixit jest spoko</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
-    <div class="container">
+  <script src="js/vue.min.js"></script>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <h1>
+          <img src="logo.png" class="img-fluid" alt="Tixid - dixit board">
+        </h1>
+      </div>
+    </div>
+
+    <div id="app">
+      <!-- <div class="row head d-xs-none d-sm-none">
+        <div class="col-md-3 col-xs-12">
+          <p>Gracz</p>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <p>Wynik</p>
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <p>Akcje</p>
+        </div>
+      </div> -->
+      <div class="empty-game" v-show="rows.length == 0">
+
+        <h2>Witaj w TIXID!</h2>
+        <h4>Kliknij aby rozpocząć rozgrywkę.</h4>
+        <button class="btn btn-default float-right" @click="addRow">Rozpocznij</button>
+
+      </div>
+      <div v-for="(row, index) in rows">
         <div class="row">
-            <div class="col-xs-12 col-md-12">
-                <h1>
-                    <img src="logo.png" class="img-fluid" alt="Tixid - dixit board">
-                </h1>
+          <div class="col-md-3 col-xs-12">
+            <div class="player-name-wrap">
+              <p contenteditable="true" v-model="row.name">
+                {{row.name}}
+                <span v-show="row.name === 'Gracz'" class="player-index">
+                  {{ index + 1 }}
+                </span>
+              </p>
             </div>
+
+          </div>
+          <div class="col-md-5 col-xs-12">
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                style="max-width: 100%;" :style="{ width: row.width + '%' }" v-bind:class="{'bg-winner': row.score >= 30}">
+                <span class="rabbit"></span>
+                <p class="winner" v-if="(row.width >= 100 && row.width <118)">Jesteś zwycięzcą!</p>
+                <p class="winner" v-else-if="row.width >= 118">Jesteś perłą, diamentem!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1 col-xs-6">
+            <p>{{ row.score }} pkt</p>
+
+          </div>
+          <div class="col-md-3 col-xs-6 actions">
+            <!--  <a href="javascript:void(0)" class="btn btn-warning" @click="row.width = row.width - multiply; row.score--" v-bind:class="{'disabled': row.score == 0}">-1</a>
+ -->
+            <!--   <a href="javascript:void(0)" class="btn btn-success" @click="row.width = row.width + multiply; row.score++">+1</a>
+ -->
+            <a href="javascript:void(0)" class="btn btn-warning" @click="decreaseScore(row)" v-bind:class="{'disabled': row.score == 0}">-1</a>
+
+            <a href="javascript:void(0)" class="btn btn-success" @click="increaseScore(row)">+1</a>
+
+            <a class="btn btn-danger float-right" @click="removeRow(index)">X</a>
+          </div>
+          <div class="col-md-12 col-xs-12">
+            <hr>
+          </div>
         </div>
+      </div>
+      <div v-show="rows.length > 0">
+        <button class="btn btn-new-player" @click="addRow" :class="{'disabled': rows.length >= 12}">+</button>
+      </div>
+    </div>
 
-        <div id="app">
-            <div class="row head d-xs-none d-sm-none">
-                <div class="col-md-3 col-xs-12">
-                    <p>Gracz</p>
-                </div>
-                <div class="col-md-6 col-xs-12">
-                    <p>Wynik</p>
-                </div>
-                <div class="col-md-3 col-xs-12">
-                    <p>Akcje</p>
-                </div>
-            </div>
-            <div v-for="(row, index) in rows">
-                <div class="row">
-                    <div class="col-md-3 col-xs-12">
-                        <p contenteditable="true" v-model="row.name">{{row.name}}</p>
-                    </div>
-                    <div class="col-md-5 col-xs-12">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                aria-valuemax="100" style="max-width: 100%;" :style="{ width: row.width + '%' }" v-bind:class="{'bg-winner': row.score == 30}">
-                                <span class="rabbit"></span>
-                                <p class="winner" v-if="row.width >= 100">Jesteś perłą, diamentem!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-1 col-xs-6">
-                        <p>{{ row.score }}</p>
-
-                    </div>
-                    <div class="col-md-3 col-xs-6 actions">
-                        <a href="javascript:void(0)" class="btn btn-warning" @click="row.width = row.width - multiply; row.score--" v-bind:class="{'disabled': row.score == 0}">-1</a>
-
-                        <a href="javascript:void(0)" class="btn btn-success" @click="row.width = row.width + multiply; row.score++">+1</a>
-
-                        <a class="btn btn-danger float-right" @click="removeRow(index)">X</a>
-                    </div>
-                    <div class="col-md-12 col-xs-12">
-                        <hr>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-default float-right" @click="addRow">Dodaj nowego gracza</button>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <script src="app.js"></script>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-            crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

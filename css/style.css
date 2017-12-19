@@ -5,6 +5,35 @@ h1 {
   margin: 50px 0;
   font-size: 60px;
   font-weight: 700;
+  color: #413e69;
+}
+
+.empty-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /*   &.fade-enter-active,
+  &.fade-leave-active {
+    transition: opacity .5s
+  }
+  &.fade-enter,
+  &.fade-leave-to
+  {
+    opacity: 0
+  } */
+}
+
+.empty-game h2 {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.empty-game h4 {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 .btn {
@@ -16,44 +45,47 @@ h1 {
   background: #413e69;
   border: 0;
 }
+
 .btn-success:hover {
   background: #39365c;
 }
+
 .btn-success:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(65, 62, 105, 0.4) !important;
-          box-shadow: 0 0 0 0.2rem rgba(65, 62, 105, 0.4) !important;
+  box-shadow: 0 0 0 0.2rem rgba(65, 62, 105, 0.4) !important;
   background: #39365c;
 }
+
 .btn-success:active {
   color: #fff;
   background-color: #474473 !important;
   border: 0 !important;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(65, 62, 105, 0.534) !important;
-          box-shadow: 0 0 0 0.2rem rgba(65, 62, 105, 0.534) !important;
+  box-shadow: 0 0 0 0.2rem rgba(65, 62, 105, 0.534) !important;
 }
 
 .btn-warning {
   background: #f1d896;
   border: 0;
 }
+
 .btn-warning:hover {
   background: #efd184;
   color: #fff !important;
 }
+
 .btn-warning:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(241, 217, 150, 0.822) !important;
-          box-shadow: 0 0 0 0.2rem rgba(241, 217, 150, 0.822) !important;
+  box-shadow: 0 0 0 0.2rem rgba(241, 217, 150, 0.822) !important;
   background: #efd184;
   color: #fff !important;
 }
+
 .btn-warning:active {
   color: #fff !important;
   background-color: #f3dda4 !important;
   border: 0 !important;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(241, 217, 150, 0.829) !important;
-          box-shadow: 0 0 0 0.2rem rgba(241, 217, 150, 0.829) !important;
+  box-shadow: 0 0 0 0.2rem rgba(241, 217, 150, 0.829) !important;
   color: white;
 }
+
 .btn-warning.disabled {
   background: #f5e2b1;
   border: 0;
@@ -69,8 +101,24 @@ h1 {
   color: #999 !important;
   font-size: 20px !important;
 }
+
 .btn-default:hover, .btn-default:focus {
   background: #ebebeb;
+}
+
+.btn-new-player {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background: #413e69;
+  color: white;
+}
+
+.btn-new-player.disabled {
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -83,11 +131,13 @@ h1 {
 .head {
   padding: 0 0 20px 0;
 }
+
 @media (max-width: 768px) {
   .head {
     display: none;
   }
 }
+
 .head p {
   font-weight: 700;
   font-size: 28px;
@@ -100,7 +150,15 @@ p {
   padding: 5px 0;
   margin: 0;
   margin-bottom: 0;
+  color: #413e69;
 }
+
+p.winner {
+  color: white;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
 @media (max-width: 992px) {
   p.winner {
     font-size: 16px;
@@ -111,20 +169,23 @@ p {
   height: 40px;
   overflow: visible;
 }
+
 .progress .progress-bar {
-  -webkit-transition: width .3s;
-  transition: width .3s;
+  transition: all .3s;
   position: relative;
   border-radius: 4px;
 }
+
 .progress .progress-bar.bg-success {
   background-color: #7d7aad !important;
 }
+
 .progress .progress-bar.bg-winner {
-  background-color: #30c222 !important;
+  background-color: #61c557 !important;
 }
+
 .progress .progress-bar .rabbit {
-  background: url("rabbit.png");
+  background: url("../rabbit.png");
   background-size: 49px;
   background-repeat: no-repeat;
   position: absolute;
@@ -138,17 +199,35 @@ p {
   background: #9add34;
   height: 100%;
   width: 100%;
-  -webkit-transition: width .2s;
   transition: width .2s;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
-/*# sourceMappingURL=style.css.map */
+.player-name-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  /* .player-index {
+    margin-left: 5px;
+  } */
+}
+
+.player-name-wrap p {
+  outline: none;
+  border-bottom: 0;
+  width: 100%;
+  color: #413e69;
+  transition: all .2s;
+}
+
+.player-name-wrap p:hover {
+  color: #64609e;
+}
+
+.player-name-wrap p:focus {
+  outline: none;
+  color: #716db1;
+}
