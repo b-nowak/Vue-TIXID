@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
 h1 {
   text-align: center;
   display: block;
@@ -129,24 +134,19 @@ h1 {
   }
 }
 
-.head {
+/* .head {
   padding: 0 0 20px 0;
-}
-
-@media (max-width: 768px) {
-  .head {
+  @media (max-width: 768px) {
     display: none;
   }
-}
-
-.head p {
-  font-weight: 700;
-  font-size: 28px;
-}
-
+  p {
+    font-weight: 700;
+    font-size: 28px;
+  }
+} */
 p {
   font-size: 22px;
-  font-family: Helvetica, sans-serif;
+  font-family: "Open Sans", sans-serif;
   display: block;
   padding: 5px 0;
   margin: 0;

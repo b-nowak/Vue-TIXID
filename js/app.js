@@ -2,7 +2,7 @@ Vue.config.devtools = true;
 var app = new Vue({
   el: "#app",
   data: {
-    multiply: 3.34,
+    step: 3.34,
     rows: []
   },
   methods: {
@@ -20,11 +20,11 @@ var app = new Vue({
       }
     },
     increaseScore: function (row) {
-      row.width = row.width + this.multiply;
+      row.width = row.width + this.step;
       row.score++;
     },
     decreaseScore: function (row) {
-      row.width = row.width - this.multiply;
+      row.width = row.width - this.step;
       row.score--;
     }
 
