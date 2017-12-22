@@ -40,7 +40,7 @@
 
         <h2>Witaj w TIXID!</h2>
         <h4>Kliknij aby rozpocząć rozgrywkę.</h4>
-        <button class="btn btn-default float-right" @click="addRow">Rozpocznij</button>
+        <button class="btn btn-success" @click="addRow">Rozpocznij</button>
 
       </div>
       <div v-for="(row, index) in rows">
@@ -67,7 +67,9 @@
             </div>
           </div>
           <div class="col-md-1 col-xs-6">
-            <p>{{ row.score }} pkt</p>
+            <p>{{ row.score }}
+              <span class="pkt">pkt</span>
+            </p>
 
           </div>
           <div class="col-md-3 col-xs-6 actions">

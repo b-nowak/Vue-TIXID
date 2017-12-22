@@ -3,6 +3,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  background: transparent url("../bg.png") repeat scroll 0% 0%;
+}
+
 h1 {
   text-align: center;
   display: block;
@@ -39,6 +43,7 @@ h1 {
   display: block;
   text-align: center;
   width: 100%;
+  margin: 0 0 15px;
 }
 
 .btn {
@@ -166,9 +171,26 @@ p.winner {
   }
 }
 
+.pkt {
+  font-size: 11px;
+}
+
+hr {
+  border-top: 1px solid #dbdaea;
+}
+
+@media (max-width: 768px) {
+  hr {
+    margin-bottom: 20px;
+  }
+}
+
 .progress {
   height: 40px;
   overflow: visible;
+  background-color: #e6e9ed;
+  border-radius: .25rem;
+  border: 1px solid #dbdaea;
 }
 
 .progress .progress-bar {

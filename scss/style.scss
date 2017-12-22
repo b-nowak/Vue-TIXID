@@ -7,6 +7,10 @@ $light: #f1d896;
   font-family: $font;
 }
 
+body {
+  background: rgba(0, 0, 0, 0) url("../bg.png") repeat scroll 0% 0%;
+}
+
 h1 {
   text-align: center;
   display: block;
@@ -40,6 +44,7 @@ h1 {
     display: block;
     text-align: center;
     width: 100%;
+    margin: 0 0 15px;
   }
 }
 
@@ -158,9 +163,23 @@ p {
   }
 }
 
+.pkt {
+  font-size: 11px;
+}
+
+hr {
+  border-top: 1px solid #dbdaea;
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+}
+
 .progress {
   height: 40px;
   overflow: visible;
+  background-color: #e6e9ed;
+  border-radius: .25rem;
+  border: 1px solid #dbdaea;
   .progress-bar {
     transition: all .3s; //animation-direction: reverse;
     position: relative;
